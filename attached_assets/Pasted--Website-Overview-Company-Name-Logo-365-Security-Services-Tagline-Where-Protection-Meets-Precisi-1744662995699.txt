@@ -1,0 +1,76 @@
+🌐 Website Overview
+Company Name/Logo: 365 Security Services
+Tagline: Where Protection Meets Precision
+Slogan: Unmatched Security, Unparalleled Service
+Welcome Text: Welcome to 365 Security Services
+
+🎨 Design & Style
+Theme: Modern, minimalistic with a dark theme background (black with soft abstract digital light dots).
+
+Accent Color: Warm bronze/tan for headings, buttons, and hover states.
+
+Font: Sleek sans-serif for main text and headers, slightly futuristic or tech-oriented.
+
+Visual Feel: High-tech, professional, trustworthy.
+
+📌 Top Navigation Bar
+Position: Top-right of the page.
+
+Style: Rounded buttons with tan background, white font, and compact size.
+
+Items:
+
+Home
+
+About
+
+Manned Services
+
+Security Consultancy
+
+Cash Services
+
+🖼️ Hero Section
+Background: Full-width animated or static digital particles (dark mode).
+
+Main Heading (Large Font): “Where Protection Meets Precision”
+
+Subheading: “Unmatched Security, Unparalleled Service”
+
+Welcome line: “Welcome to 365 Security Services”
+
+🧰 Services Section
+Heading: “Our Services” (centered, warm tan font)
+
+Three Service Cards Horizontally Aligned:
+
+1. Manned Services
+Image: A guard with an earpiece and sunglasses (black and white photo).
+
+Description:
+“Our highly trained and experienced security guards stand ready to provide around-the-clock protection for your business, event, or personal security needs, ensuring your utmost safety and peace of mind.”
+
+Button: “Read More” (small, white with tan background)
+
+2. Security Consultancy
+Image: Electronic circuit board and pliers (tech-focused, black and white).
+
+Description:
+“We provide secure transportation and protection for your cash and valuables. Our team of armed guards ensures the safety of your assets throughout the entire process.”
+
+Button: “Read More”
+
+3. Cash Services
+Image: Close-up of a dollar bill's eye.
+
+Description:
+“Additionally, we provide safety training for businesses and individuals. Our courses encompass various topics such as workplace safety, emergency response, and first aid/CPR.”
+
+Button: “Read More”
+
+📐 Layout Notes
+Cards: Each service is within a rounded brown container with an image on top or to the left.
+
+Hover Effects: Likely subtle scaling or color change (based on style).
+
+Responsiveness: Likely responsive for tablet/mobile with stacked service cards.

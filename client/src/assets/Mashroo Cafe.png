@@ -1,0 +1,11 @@
+import os
+
+try:
+    os.rename("Mashroo Cafe.png", "Mashrou3 Cafe.png")
+    print("File renamed successfully.")
+except FileNotFoundError:
+    print("Error: File 'Mashroo Cafe.png' not found.")
+except FileExistsError:
+    print("Error: File 'Mashrou3 Cafe.png' already exists.")
+except Exception as e:
+    print(f"An error occurred: {e}")

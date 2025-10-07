@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-dark-800 {
+    background-color: #1a1a1a;
+  }
+  
+  .bg-dark-900 {
+    background-color: #0f0f0f;
+  }
+  
+  .from-dark-800 {
+    --tw-gradient-from: #1a1a1a var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(26 26 26 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-dark-900 {
+    --tw-gradient-to: #0f0f0f var(--tw-gradient-to-position);
+  }
+  
+  /* Completely disable hover effects on mobile navigation */
+  .mobile-nav-item {
+    transition: none !important;
+  }
+  
+  .mobile-nav-item:hover {
+    color: inherit !important;
+    background-color: transparent !important;
+    transform: none !important;
+  }
+  
+  /* Only enable hover on desktop with fine pointer */
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-nav-item.desktop-hover:hover {
+      color: #a87c64 !important;
+      background-color: #0f0f0f !important;
+      transition: all 0.2s ease !important;
+    }
+  }
+  
+  /* Hide scrollbars */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
