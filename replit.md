@@ -77,6 +77,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Media and Assets
 - **Video Assets**: Local video files for background and showcase sections
+- **Cloudflare Pages Limit**: Keep video assets under 25 MiB; the oversized `background.mp4` was removed to meet this limit.
 - **Image Optimization**: Imported assets with build-time optimization
 - **Font Loading**: Google Fonts integration with local font definitions
 
