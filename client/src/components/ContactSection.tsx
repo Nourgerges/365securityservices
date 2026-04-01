@@ -546,13 +546,16 @@ export function ContactSection() {
           )}
           
           {mapError && (
-            <iframe
-              title="365 Security Services location"
-              src={mapEmbedUrl}
-              className="absolute inset-0 w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <>
+              <iframe
+                title="365 Security Services location"
+                src={mapEmbedUrl}
+                className="absolute inset-0 w-full h-full border-0 grayscale contrast-125 brightness-75 saturate-50"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-[#0f1117]/35" />
+            </>
           )}
         </motion.div>
       </div>

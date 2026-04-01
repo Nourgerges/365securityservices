@@ -145,10 +145,11 @@ export function MapSection() {
         <iframe
           title="365 Security Services location"
           src={mapEmbedUrl}
-          className="w-full h-full min-h-[400px] border-0"
+          className="w-full h-full min-h-[400px] border-0 grayscale contrast-125 brightness-75 saturate-50"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
+        <div className="absolute inset-0 pointer-events-none bg-[#0f1117]/35" />
       </motion.div>
     );
   }
