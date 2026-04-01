@@ -68,6 +68,8 @@ export function VideoShowcase({
       };
 
       const handleLoadedMetadata = () => {
+        setIsLoaded(true);
+        setHasError(false);
         // Video metadata loaded, start playing for smoother experience
         video.play().catch(() => {
           // Autoplay might be blocked
@@ -205,14 +207,13 @@ export function VideoShowcase({
                 <video
                   ref={videoRef}
                   src={videoSrc}
+                  autoPlay
                   loop
                   muted
                   playsInline
                   preload="metadata"
                   poster={posterSrc}
-                  className={`w-full h-auto transition-opacity duration-700 ${
-                    isLoaded ? "opacity-100" : "opacity-0"
-                  }`}
+                  className="w-full h-auto transition-opacity duration-700 opacity-100"
                   style={{ aspectRatio: "16/9" }}
                 />
               )}

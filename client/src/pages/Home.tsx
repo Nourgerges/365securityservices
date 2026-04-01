@@ -12,6 +12,7 @@ import { Footer } from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Helmet } from "react-helmet";
+import trainingShowcaseVideo from "../../../attached_assets/Video 2_1749142276592.mp4";
 
 export default function Home() {
   const [scrollToTop, setScrollToTop] = useState(false);
@@ -139,7 +140,7 @@ export default function Home() {
         subtitle="Professional Excellence"
         title="See Our Security Solutions in Action"
         description="Watch how 365 Security Services delivers comprehensive protection through cutting-edge technology, expert personnel, and proven methodologies. Our commitment to excellence ensures your peace of mind."
-        videoSrc="/attached_assets/Video 2_1749142276592.mp4"
+        videoSrc={trainingShowcaseVideo}
         variant="home"
       />
       <AboutSection />
