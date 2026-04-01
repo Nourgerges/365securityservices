@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { FiShield, FiTarget, FiUsers, FiActivity, FiAward, FiBook } from "react-icons/fi";
 import { Helmet } from "react-helmet";
+import trainingShowcaseVideo from "../../../attached_assets/Video 2_1749142276592.mp4";
 
 interface TrainingService {
   id: number;
@@ -226,7 +227,7 @@ export default function SecurityTrainingPage() {
         subtitle="Training Excellence"
         title="Professional Security Training in Action"
         description="Experience our comprehensive training methodologies designed to build elite security professionals. Our hands-on approach combines theoretical knowledge with practical skills to ensure readiness for real-world scenarios."
-        videoSrc="/attached_assets/Video 2_1749142276592.mp4"
+        videoSrc={trainingShowcaseVideo}
         variant="training"
       />
       
