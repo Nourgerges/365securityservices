@@ -6,6 +6,7 @@ declare global {
   interface Window {
     google: any;
     initContactMap: () => void;
+    gm_authFailure?: () => void;
   }
 }
 
@@ -18,10 +19,13 @@ const businessLocation = {
   googleMapsUrl: 'https://www.google.com/maps/place/365+Security+Services/@33.8861258,35.5494234,601m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151f17f15614ae21:0x795ce8b34b2a17f7!8m2!3d33.8861258!4d35.5494234!16s%2Fg%2F11x2crdcp4?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D'
 };
 
+const mapEmbedUrl = `https://www.google.com/maps?q=${businessLocation.lat},${businessLocation.lng}&z=16&output=embed`;
+
 export function ContactSection() {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [mapError, setMapError] = useState(false);
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
   
   const [formData, setFormData] = useState({
     name: "",
@@ -40,6 +44,20 @@ export function ContactSection() {
 
   useEffect(() => {
     if (!mapRef.current) return;
+
+    if (!apiKey || ['undefined', 'null'].includes(apiKey) || apiKey.includes('YOUR_') || apiKey.includes('REPLACE_')) {
+      setMapError(true);
+      return;
+    }
+
+    const previousAuthFailure = window.gm_authFailure;
+    window.gm_authFailure = () => {
+      setMapError(true);
+      setMapLoaded(false);
+      if (typeof previousAuthFailure === 'function') {
+        previousAuthFailure();
+      }
+    };
 
     const initGoogleMap = () => {
       try {
@@ -232,7 +250,7 @@ export function ContactSection() {
 
     if (typeof (window as any).google === 'undefined' || !(window as any).google.maps) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`;
       script.async = true;
       script.defer = true;
       
@@ -248,7 +266,11 @@ export function ContactSection() {
     } else {
       initGoogleMap();
     }
-  }, []);
+
+    return () => {
+      window.gm_authFailure = previousAuthFailure;
+    };
+  }, [apiKey]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -524,19 +546,13 @@ export function ContactSection() {
           )}
           
           {mapError && (
-            <div className="absolute inset-0 bg-dark-900 flex items-center justify-center">
-              <div className="text-center p-8">
-                <h3 className="text-[#a87c64] text-lg mb-4">Our Location</h3>
-                <p className="text-gray-300 mb-4">{businessLocation.name}</p>
-                <p className="text-gray-400 text-sm mb-6">{businessLocation.address}</p>
-                <button
-                  onClick={() => window.open(businessLocation.googleMapsUrl, '_blank')}
-                  className="bg-[#a87c64] hover:bg-[#8a6b56] text-white px-6 py-3 rounded transition-colors duration-200"
-                >
-                  Get Directions
-                </button>
-              </div>
-            </div>
+            <iframe
+              title="365 Security Services location"
+              src={mapEmbedUrl}
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           )}
         </motion.div>
       </div>
