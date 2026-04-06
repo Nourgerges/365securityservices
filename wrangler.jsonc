@@ -1,5 +1,5 @@
 {
-  "name": "365securityservices-site",
+  "name": "365securityservices",
   "compatibility_date": "2026-01-13",
   "assets": {
     "directory": "./dist"
