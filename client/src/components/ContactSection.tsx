@@ -1,28 +1,15 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
-// Google Maps TypeScript declarations
-declare global {
-  interface Window {
-    google: any;
-    initContactMap: () => void;
-  }
-}
-
-// Business location coordinates from Google Maps
+// Business location info
 const businessLocation = {
-  lat: 33.8861258,
-  lng: 35.5494234,
   name: '365 Security Services',
   address: 'Dekwaneh, Lebanon',
-  googleMapsUrl: 'https://www.google.com/maps/place/365+Security+Services/@33.8861258,35.5494234,601m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151f17f15614ae21:0x795ce8b34b2a17f7!8m2!3d33.8861258!4d35.5494234!16s%2Fg%2F11x2crdcp4?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D'
+  googleMapsUrl: 'https://www.google.com/maps/place/365+Security+Services/@33.8861258,35.5494234,601m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151f17f15614ae21:0x795ce8b34b2a17f7!8m2!3d33.8861258!4d35.5494234!16s%2Fg%2F11x2crdcp4?entry=ttu',
+  embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1654.0!2d35.5494234!3d33.8861258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f17f15614ae21%3A0x795ce8b34b2a17f7!2s365%20Security%20Services!5e0!3m2!1sen!2slb!4v1'
 };
 
 export function ContactSection() {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
-  const [mapError, setMapError] = useState(false);
-  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,218 +24,6 @@ export function ContactSection() {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
   };
-
-  useEffect(() => {
-    if (!mapRef.current) return;
-
-    const initGoogleMap = () => {
-      try {
-        const map = new (window as any).google.maps.Map(mapRef.current!, {
-          center: { lat: businessLocation.lat, lng: businessLocation.lng },
-          zoom: 16,
-          styles: [
-            {
-              "elementType": "geometry",
-              "stylers": [{"color": "#212121"}]
-            },
-            {
-              "elementType": "labels.icon",
-              "stylers": [{"visibility": "off"}]
-            },
-            {
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#757575"}]
-            },
-            {
-              "elementType": "labels.text.stroke",
-              "stylers": [{"color": "#212121"}]
-            },
-            {
-              "featureType": "administrative",
-              "elementType": "geometry",
-              "stylers": [{"color": "#757575"}]
-            },
-            {
-              "featureType": "administrative.country",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#9e9e9e"}]
-            },
-            {
-              "featureType": "administrative.land_parcel",
-              "stylers": [{"visibility": "off"}]
-            },
-            {
-              "featureType": "administrative.locality",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#bdbdbd"}]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#757575"}]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "geometry",
-              "stylers": [{"color": "#181818"}]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#616161"}]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.stroke",
-              "stylers": [{"color": "#1b1b1b"}]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry.fill",
-              "stylers": [{"color": "#2c2c2c"}]
-            },
-            {
-              "featureType": "road",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#8a8a8a"}]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "geometry",
-              "stylers": [{"color": "#373737"}]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "geometry",
-              "stylers": [{"color": "#3c3c3c"}]
-            },
-            {
-              "featureType": "road.highway.controlled_access",
-              "elementType": "geometry",
-              "stylers": [{"color": "#4e4e4e"}]
-            },
-            {
-              "featureType": "road.local",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#616161"}]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#757575"}]
-            },
-            {
-              "featureType": "water",
-              "elementType": "geometry",
-              "stylers": [{"color": "#000000"}]
-            },
-            {
-              "featureType": "water",
-              "elementType": "labels.text.fill",
-              "stylers": [{"color": "#3d3d3d"}]
-            }
-          ],
-          disableDefaultUI: false,
-          zoomControl: true,
-          streetViewControl: false,
-          fullscreenControl: false,
-          mapTypeControl: false
-        });
-
-        const marker = new (window as any).google.maps.Marker({
-          position: { lat: businessLocation.lat, lng: businessLocation.lng },
-          map: map,
-          title: businessLocation.name,
-          icon: {
-            url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-              <svg width="40" height="60" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"/>
-                  </filter>
-                  <linearGradient id="pinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                    <stop offset="30%" style="stop-color:#e0e0e0;stop-opacity:1" />
-                    <stop offset="70%" style="stop-color:#a87c64;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8a6b56;stop-opacity:1" />
-                  </linearGradient>
-                  <linearGradient id="innerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#cccccc;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <!-- Pin shadow -->
-                <ellipse cx="20" cy="56" rx="6" ry="2.5" fill="#000000" opacity="0.3"/>
-                <!-- Sharp pin body -->
-                <path d="M20 3C13 3 7.5 8.5 7.5 15.5c0 11 12.5 40.5 12.5 40.5s12.5-29.5 12.5-40.5C32.5 8.5 27 3 20 3z" 
-                      fill="url(#pinGradient)" 
-                      stroke="#333333" 
-                      stroke-width="1.5" 
-                      filter="url(#shadow)"/>
-                <!-- Inner circle -->
-                <circle cx="20" cy="15.5" r="6" fill="url(#innerGradient)" stroke="#666666" stroke-width="1"/>
-                <!-- Inner dot -->
-                <circle cx="20" cy="15.5" r="3" fill="#a87c64"/>
-                <!-- Metallic shine -->
-                <ellipse cx="17" cy="12" rx="2" ry="1.5" fill="#ffffff" opacity="0.6"/>
-                <!-- Sharp tip highlight -->
-                <circle cx="20" cy="53" r="1" fill="#ffffff" opacity="0.3"/>
-              </svg>
-            `),
-            scaledSize: new (window as any).google.maps.Size(40, 60),
-            anchor: new (window as any).google.maps.Point(20, 56)
-          }
-        });
-
-        const infoWindow = new (window as any).google.maps.InfoWindow({
-          content: `
-            <div style="color: #333; font-family: Arial, sans-serif; max-width: 200px;">
-              <h3 style="margin: 0 0 8px 0; color: #a87c64;">${businessLocation.name}</h3>
-              <p style="margin: 0 0 8px 0; font-size: 14px;">${businessLocation.address}</p>
-              <button 
-                onclick="window.open('${businessLocation.googleMapsUrl}', '_blank')"
-                style="background: #a87c64; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px;"
-              >
-                Get Directions
-              </button>
-            </div>
-          `
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-
-        map.addListener('click', () => {
-          window.open(businessLocation.googleMapsUrl, '_blank');
-        });
-
-        setMapLoaded(true);
-      } catch (error) {
-        console.error('Error initializing Google Maps:', error);
-        setMapError(true);
-      }
-    };
-
-    if (typeof (window as any).google === 'undefined' || !(window as any).google.maps) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
-      script.async = true;
-      script.defer = true;
-      
-      script.onload = () => {
-        initGoogleMap();
-      };
-      
-      script.onerror = () => {
-        setMapError(true);
-      };
-      
-      document.head.appendChild(script);
-    } else {
-      initGoogleMap();
-    }
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -502,42 +277,23 @@ export function ContactSection() {
         </div>
 
         {/* Full Width Google Map Section */}
-        <motion.div 
+        <motion.div
           className="overflow-hidden shadow-xl h-[450px] -mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24 relative"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <div 
-            ref={mapRef}
-            className="w-full h-full"
+          <iframe
+            src={businessLocation.embedUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={`${businessLocation.name} - ${businessLocation.address}`}
           />
-          
-          {!mapLoaded && !mapError && (
-            <div className="absolute inset-0 bg-dark-900 flex items-center justify-center">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#a87c64] mx-auto mb-4"></div>
-                <p className="text-gray-300">Loading map...</p>
-              </div>
-            </div>
-          )}
-          
-          {mapError && (
-            <div className="absolute inset-0 bg-dark-900 flex items-center justify-center">
-              <div className="text-center p-8">
-                <h3 className="text-[#a87c64] text-lg mb-4">Our Location</h3>
-                <p className="text-gray-300 mb-4">{businessLocation.name}</p>
-                <p className="text-gray-400 text-sm mb-6">{businessLocation.address}</p>
-                <button
-                  onClick={() => window.open(businessLocation.googleMapsUrl, '_blank')}
-                  className="bg-[#a87c64] hover:bg-[#8a6b56] text-white px-6 py-3 rounded transition-colors duration-200"
-                >
-                  Get Directions
-                </button>
-              </div>
-            </div>
-          )}
         </motion.div>
       </div>
     </section>
