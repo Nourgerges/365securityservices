@@ -67,12 +67,12 @@ export function FeaturesSection() {
             </span>
           </motion.h2>
           
-          <motion.div 
-            className="flex justify-center mb-8"
-            initial={{ width: 0 }}
-            whileInView={{ width: 120 }}
+          <motion.div
+            className="flex justify-center mb-8 w-[120px] mx-auto"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="h-1 bg-gradient-to-r from-transparent via-[#a87c64] to-transparent rounded-full relative">
               {/* Glowing effect for the line */}
@@ -113,10 +113,10 @@ export function FeaturesSection() {
               <motion.div 
                 key={feature.id}
                 className="relative group"
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ 
                   y: -8,
                   transition: { duration: 0.3, ease: "easeOut" }
@@ -125,7 +125,7 @@ export function FeaturesSection() {
                 {/* Card glow effect on hover */}
                 <div className="absolute inset-0 bg-[#a87c64]/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="relative bg-dark-900 p-8 rounded-xl border border-[#a87c64]/20 h-full flex flex-col text-center group-hover:border-[#a87c64]/50 group-hover:bg-dark-900/90 transition-all duration-500 backdrop-blur-sm">
+                <div className="relative bg-dark-900 p-8 rounded-xl border border-[#a87c64]/20 h-full flex flex-col text-center group-hover:border-[#a87c64]/50 group-hover:bg-dark-900/90 transition-all duration-500">
                   {/* Icon container with subtle background */}
                   <motion.div 
                     className="relative w-16 h-16 mx-auto mb-6"
@@ -151,7 +151,7 @@ export function FeaturesSection() {
                     className="mt-6 h-0.5 bg-gradient-to-r from-transparent via-[#a87c64]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                    transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
                   />
                 </div>
               </motion.div>

@@ -54,10 +54,10 @@ export function Hero() {
           
           <motion.h2 
             className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 text-[#a87c64] font-orbitron relative z-10"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 1.8, 
+            transition={{
+              duration: 0.8,
               delay: 1.2
             }}
           >

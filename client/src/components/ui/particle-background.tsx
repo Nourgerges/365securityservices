@@ -20,7 +20,7 @@ interface ParticleBackgroundProps {
 }
 
 export function ParticleBackground({
-  count = 100,
+  count = 12,
   minSize = 2,
   maxSize = 10,
   className = ''
@@ -122,7 +122,7 @@ export function ParticleBackground({
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full pointer-events-none backdrop-blur-[1px]"
+          className="absolute rounded-full pointer-events-none"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
@@ -130,34 +130,16 @@ export function ParticleBackground({
             height: `${particle.size}px`,
             opacity: particle.opacity,
             background: `radial-gradient(circle at center, ${particle.color} 10%, transparent 80%)`,
-            boxShadow: `0 0 ${particle.size * 2}px ${particle.color}, 0 0 ${particle.size * 0.5}px #fff`,
-            filter: 'blur(0.5px)', // Slight blur for dynamic glow
-            border: particle.size > 5 ? '1px solid rgba(255,255,255,0.1)' : 'none', // Tech border for larger particles
           }}
           animate={{
-            // More direct, forceful movements like shields or scanning patterns
-            ...(Math.random() > 0.5 
-              ? { // Horizontal patrol motion - security scan pattern
-                  x: ['-60px', '60px', '-60px'],
-                  y: ['0px', '15px', '0px'],
-                }
-              : { // Vertical security scan pattern
-                  y: ['-60px', '60px', '-60px'],
-                  x: ['0px', '15px', '0px'],
-                }
-            ),
-            scale: [0.9, 1.5, 0.9], // More pronounced power pulse
-            opacity: [particle.opacity * 0.7, particle.opacity * 3, particle.opacity * 0.7], // Stronger contrast
+            opacity: [particle.opacity * 0.5, particle.opacity * 1.5, particle.opacity * 0.5],
           }}
           transition={{
-            duration: particle.duration * 0.8, // Even faster for more power
-            delay: particle.delay * 0.5, // Less delay, more immediate
+            duration: particle.duration * 1.5,
+            delay: particle.delay,
             repeat: Infinity,
             repeatType: 'loop',
-            ease: "easeOut", // More forceful movement - accelerate quickly then slow
-            times: [0, 0.5, 1], // Simplified power curve
-            stiffness: 300, // Higher stiffness for more snap
-            damping: 15 // More controlled movements
+            ease: "easeInOut",
           }}
         />
       ))}

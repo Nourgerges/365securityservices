@@ -5,15 +5,15 @@ export function CallToAction() {
   return (
     <section className="py-20 bg-dark-900 relative overflow-hidden">
       {/* Background particles */}
-      <ParticleBackground count={30} minSize={2} maxSize={6} />
+      <ParticleBackground count={10} minSize={2} maxSize={6} />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="bg-gradient-to-r from-dark-800 to-dark-900 rounded-2xl p-10 md:p-16 border border-[#a87c64]/30 shadow-xl"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="lg:w-2/3">

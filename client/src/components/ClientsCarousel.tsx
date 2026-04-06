@@ -87,24 +87,6 @@ export function ClientsCarousel() {
     lastTimeRef.current = 0; // Reset timing
   }, []);
 
-  // Handle wheel scrolling (both vertical and horizontal)
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    
-    // Handle both horizontal (deltaX) and vertical (deltaY) scrolling
-    const scrollAmount = (e.deltaX !== 0 ? e.deltaX : e.deltaY) * 0.5;
-    currentPositionRef.current -= scrollAmount;
-    
-    // Keep within bounds for seamless loop
-    if (currentPositionRef.current > 0) {
-      currentPositionRef.current = -totalWidth + 1;
-    } else if (currentPositionRef.current <= -totalWidth) {
-      currentPositionRef.current = 0;
-    }
-    
-    controls.set({ x: currentPositionRef.current });
-  }, [totalWidth, controls]);
-
   // Handle touch/swipe gestures for mobile
   const touchStartRef = useRef<number>(0);
   const touchEndRef = useRef<number>(0);
@@ -139,25 +121,25 @@ export function ClientsCarousel() {
     <section id="clients" className="py-20 bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#a87c64]/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#a87c64]/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#a87c64]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#a87c64]/3 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-[#a87c64] font-orbitron mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             TRUSTED BY EXCELLENCE
           </motion.h2>
@@ -185,11 +167,9 @@ export function ClientsCarousel() {
 
           <div 
             className="overflow-hidden py-8 scrollbar-hide"
-            onWheel={handleWheel}
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
-              WebkitOverflowScrolling: 'touch'
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
             }}
           >
             <motion.div 
@@ -201,20 +181,16 @@ export function ClientsCarousel() {
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
-              style={{ userSelect: 'none' }}
+              style={{ userSelect: 'none', willChange: 'transform' }}
             >
               {/* First set of logos */}
               {clients.map((client, index) => (
                 <motion.div
                   key={`first-${client.id}`}
                   className="flex-shrink-0 group cursor-pointer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
                 >
-                  <div className="relative w-32 h-24 md:w-40 md:h-28 bg-dark-900/60 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-[#a87c64]/30 group-hover:border-[#a87c64]/80 overflow-hidden">
+                  <div className="relative w-32 h-24 md:w-40 md:h-28 bg-dark-900/80 rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-[#a87c64]/30 group-hover:border-[#a87c64]/80 overflow-hidden">
                     {/* Subtle glow effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#a87c64]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -255,7 +231,7 @@ export function ClientsCarousel() {
                   className="flex-shrink-0 group cursor-pointer"
                   whileHover={{ y: -10 }}
                 >
-                  <div className="relative w-32 h-24 md:w-40 md:h-28 bg-dark-900/60 backdrop-blur-sm rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-[#a87c64]/30 group-hover:border-[#a87c64]/80 overflow-hidden">
+                  <div className="relative w-32 h-24 md:w-40 md:h-28 bg-dark-900/80 rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-[#a87c64]/30 group-hover:border-[#a87c64]/80 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#a87c64]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -296,35 +272,25 @@ export function ClientsCarousel() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="relative inline-flex items-center gap-6 px-8 py-4 bg-dark-900/60 backdrop-blur-sm rounded-2xl border border-[#a87c64]/20">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-[#a87c64]/10 via-transparent to-[#a87c64]/10 rounded-2xl"
-              animate={{ 
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+          <div className="relative inline-flex items-center gap-6 px-8 py-4 bg-dark-900/80 rounded-2xl border border-[#a87c64]/20">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#a87c64]/10 via-transparent to-[#a87c64]/10 rounded-2xl" />
 
             <div className="flex items-center gap-2 text-[#a87c64] font-rajdhani font-medium">
-              <div className="w-2 h-2 bg-[#a87c64] rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-[#a87c64] rounded-full"></div>
               <span>Excellence</span>
             </div>
 
             <div className="w-px h-6 bg-[#a87c64]/30"></div>
 
             <div className="flex items-center gap-2 text-[#a87c64] font-rajdhani font-medium">
-              <div className="w-2 h-2 bg-[#a87c64] rounded-full animate-pulse delay-1000"></div>
+              <div className="w-2 h-2 bg-[#a87c64] rounded-full"></div>
               <span>Trust</span>
             </div>
 
             <div className="w-px h-6 bg-[#a87c64]/30"></div>
 
             <div className="flex items-center gap-2 text-[#a87c64] font-rajdhani font-medium">
-              <div className="w-2 h-2 bg-[#a87c64] rounded-full animate-pulse delay-2000"></div>
+              <div className="w-2 h-2 bg-[#a87c64] rounded-full"></div>
               <span>Security</span>
             </div>
           </div>

@@ -67,10 +67,10 @@ export function ContactSection() {
           {/* Contact Form */}
           <motion.div 
             className="bg-dark-900 p-8 rounded-lg shadow-xl"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             <h3 className="text-2xl font-bold mb-6 text-white font-rajdhani">Send us a Message</h3>
             
@@ -179,10 +179,10 @@ export function ContactSection() {
           {/* Contact Information */}
           <motion.div 
             className="bg-dark-800 p-5 rounded-lg shadow-xl"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
             <h3 className="text-lg font-bold mb-3 text-white font-rajdhani">Contact Information</h3>
 
@@ -279,10 +279,10 @@ export function ContactSection() {
         {/* Full Width Google Map Section */}
         <motion.div
           className="overflow-hidden shadow-xl h-[450px] -mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24 relative"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
         >
           <iframe
             src={businessLocation.embedUrl}

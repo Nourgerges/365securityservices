@@ -3,8 +3,8 @@ import { VideoBackground } from "@/components/VideoBackground";
 
 export function AboutSection() {
   const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
   const staggerContainer = {
@@ -12,8 +12,8 @@ export function AboutSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.1
       }
     }
   };
@@ -26,10 +26,10 @@ export function AboutSection() {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 2.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <motion.h2 
             className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron mb-8"
@@ -49,12 +49,12 @@ export function AboutSection() {
             </span>
           </motion.h2>
           
-          <motion.div 
-            className="flex justify-center mb-8"
-            initial={{ width: 0 }}
-            whileInView={{ width: 120 }}
+          <motion.div
+            className="flex justify-center mb-8 w-[120px] mx-auto"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="h-1 bg-gradient-to-r from-transparent via-[#a87c64] to-transparent rounded-full relative">
               <div className="absolute inset-0 h-1 bg-gradient-to-r from-transparent via-[#a87c64] to-transparent rounded-full blur-sm opacity-60"></div>
