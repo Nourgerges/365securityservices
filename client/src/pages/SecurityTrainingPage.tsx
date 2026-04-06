@@ -111,9 +111,9 @@ export default function SecurityTrainingPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Professional Security Training & Certification Programs | 365 Security Lebanon</title>
-        <meta name="description" content="Elite security training programs including threat assessment, emergency response, self-defense, first aid CPR certification, and specialized security courses. Professional security training in Lebanon." />
-        <meta name="keywords" content="security training, threat assessment training, emergency response training, self-defense training, first aid CPR certification, security awareness, security education, professional security courses, Lebanon security training" />
+        <title>Security Training Lebanon | Self-Defense & Emergency Response Courses | 365 Security</title>
+        <meta name="description" content="Professional security training programs in Lebanon. 365 Security offers threat assessment, emergency response, self-defense, first aid CPR certification, and specialized security courses across Beirut and Lebanon." />
+        <meta name="keywords" content="security training Lebanon, self-defense training Beirut, emergency response training Lebanon, first aid CPR Lebanon, threat assessment training Lebanon, security courses Lebanon, security certification Lebanon, professional security training Beirut, guard training Lebanon" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://365securityservices.company/services/security-training" />
         

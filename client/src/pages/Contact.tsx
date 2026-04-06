@@ -57,8 +57,54 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-dark-900 pt-24 pb-16">
       <Helmet>
-        <title>Contact Us | 365 Security Services</title>
-        <meta name="description" content="Contact 365 Security Services for comprehensive security solutions. Our team of experts is ready to help with your security needs." />
+        <title>Contact Us - Get a Security Quote | 365 Security Services Lebanon</title>
+        <meta name="description" content="Contact 365 Security Services in Dekwaneh, Lebanon for a free security consultation. Call +961 81 365 365 or visit our office. Professional security solutions for businesses across Beirut and Lebanon." />
+        <meta name="keywords" content="contact security company Lebanon, security quote Lebanon, security consultation Beirut, 365 security services contact, Dekwaneh security office, hire security guards Lebanon" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://365securityservices.company/contact" />
+
+        <meta property="og:title" content="Contact Us | 365 Security Services Lebanon" />
+        <meta property="og:description" content="Get in touch with Lebanon's trusted security company. Free security consultation. Call +961 81 365 365 or visit our Dekwaneh office." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://365securityservices.company/contact" />
+        <meta property="og:site_name" content="365 Security Services" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | 365 Security Services Lebanon" />
+        <meta name="twitter:description" content="Get in touch with Lebanon's trusted security company. Free consultation available." />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "SecurityService",
+              "name": "365 Security Services",
+              "telephone": "+961-81-365365",
+              "email": "info@365securityservices.company",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3rd Floor, Boulevard Heights, Sin Fil Highway",
+                "addressLocality": "Dekwaneh",
+                "addressRegion": "Mount Lebanon",
+                "addressCountry": "LB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 33.8861258,
+                "longitude": 35.5494234
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "08:00",
+                  "closes": "18:00"
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className="container mx-auto px-4">

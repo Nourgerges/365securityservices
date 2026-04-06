@@ -103,9 +103,9 @@ export default function CashServicesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Secure Cash Transportation & Financial Security Services | 365 Security Lebanon</title>
-        <meta name="description" content="Professional cash transportation, ATM outsourcing, bank escort services, and valuable item security. Armored vehicle services and financial security solutions across Lebanon." />
-        <meta name="keywords" content="cash transportation, ATM services, bank escort, valuable escort, armored vehicle, financial security, cash management, ATM outsourcing, banking security, Lebanon cash services" />
+        <title>Cash Transportation & Bank Security Lebanon | Armored Services | 365 Security</title>
+        <meta name="description" content="Secure cash transportation and bank escort services in Lebanon. 365 Security provides armored vehicle services, ATM outsourcing, valuable item transport, and financial security solutions across Beirut and Lebanon." />
+        <meta name="keywords" content="cash transportation Lebanon, armored vehicle Lebanon, bank escort services Beirut, ATM outsourcing Lebanon, secure cash delivery Lebanon, valuable item transport Lebanon, financial security Lebanon, banking security Beirut, cash management Lebanon" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://365securityservices.company/services/cash-services" />
         

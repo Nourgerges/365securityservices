@@ -42,25 +42,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Helmet>
-        <title>365 Security Services - Premier Security Solutions | Where Protection Meets Precision</title>
-        <meta name="description" content="365 Security Services provides comprehensive security solutions including manned security, cash services, security consultancy, and training. Professional protection services across Lebanon with 24/7 support." />
-        <meta name="keywords" content="security services, manned security, cash transportation, security training, close protection, security consultancy, Lebanon security, 365 security, security guards, professional security" />
+        <title>365 Security Services - Leading Lebanese Security Company | Dekwaneh, Lebanon</title>
+        <meta name="description" content="365 Security Services is Lebanon's trusted security company based in Dekwaneh. We provide professional manned security guards, secure cash transportation, security consultancy, and training across Beirut and all of Lebanon. 24/7 protection." />
+        <meta name="keywords" content="Lebanese security services, security company Lebanon, security guards Lebanon, manned security Beirut, cash transportation Lebanon, security training Lebanon, security consultancy Lebanon, close protection Lebanon, Dekwaneh security, private security Lebanon, armed guards Lebanon, corporate security Beirut, event security Lebanon, 365 security services" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://365securityservices.company/" />
-        
+
         {/* Open Graph Tags */}
-        <meta property="og:title" content="365 Security Services - Premier Security Solutions" />
-        <meta property="og:description" content="Professional security services including manned security, cash services, security consultancy, and training across Lebanon. 24/7 protection with cutting-edge technology." />
+        <meta property="og:title" content="365 Security Services - Leading Lebanese Security Company" />
+        <meta property="og:description" content="Lebanon's trusted security company. Professional manned security, cash transportation, security consultancy, and training across Beirut and Lebanon. 24/7 protection." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://365securityservices.company/" />
         <meta property="og:site_name" content="365 Security Services" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="365 Security Services - Premier Security Solutions" />
-        <meta name="twitter:description" content="Professional security services including manned security, cash services, security consultancy, and training across Lebanon." />
-        
+        <meta name="twitter:title" content="365 Security Services - Leading Lebanese Security Company" />
+        <meta name="twitter:description" content="Lebanon's trusted security company. Manned security, cash transportation, consultancy, and training across Beirut and Lebanon." />
+
         {/* Local Business Schema - JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -68,57 +68,88 @@ export default function Home() {
             "@type": "SecurityService",
             "name": "365 Security Services",
             "alternateName": "365 Security",
-            "description": "Professional security services company providing manned security, cash transportation, security consultancy, and training services across Lebanon.",
+            "description": "Leading Lebanese security company providing professional manned security guards, secure cash transportation, security consultancy, and training services across Beirut and Lebanon.",
             "url": "https://365securityservices.company",
             "logo": "https://365securityservices.company/favicon.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+961-81-365365",
-              "contactType": "customer service",
-              "availableLanguage": ["English", "Arabic"]
-            },
+            "telephone": "+961-81-365365",
+            "email": "info@365securityservices.company",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+961-81-365365",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Arabic"]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+961-01-511365",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Arabic"]
+              }
+            ],
             "address": {
               "@type": "PostalAddress",
-              "addressCountry": "Lebanon"
+              "streetAddress": "3rd Floor, Boulevard Heights, Sin Fil Highway",
+              "addressLocality": "Dekwaneh",
+              "addressRegion": "Mount Lebanon",
+              "addressCountry": "LB"
             },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 33.8861258,
+              "longitude": 35.5494234
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+              }
+            ],
             "serviceArea": {
               "@type": "Country",
               "name": "Lebanon"
             },
+            "areaServed": [
+              { "@type": "City", "name": "Beirut" },
+              { "@type": "City", "name": "Dekwaneh" },
+              { "@type": "Country", "name": "Lebanon" }
+            ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Security Services",
+              "name": "Lebanese Security Services",
               "itemListElement": [
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Manned Security Services",
-                    "description": "Professional security guards, static guards, patrolling supervisors, close protection, and crowd control services."
+                    "name": "Manned Security Services in Lebanon",
+                    "description": "Professional security guards, static guards, patrolling supervisors, close protection, and crowd control services across Beirut and Lebanon."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Cash Services",
-                    "description": "Secure cash transportation, ATM outsourcing, bank escort services, and valuable item transportation."
+                    "name": "Cash Transportation Services in Lebanon",
+                    "description": "Secure cash transportation, ATM outsourcing, bank escort services, and valuable item transportation across Lebanon."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Security Consultancy",
-                    "description": "Risk assessment, threat analysis, security surveys, and crisis management planning."
+                    "name": "Security Consultancy in Lebanon",
+                    "description": "Risk assessment, threat analysis, security surveys, and crisis management planning for Lebanese businesses and institutions."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Security Training",
-                    "description": "Professional security training, threat assessment, emergency response, and certification programs."
+                    "name": "Security Training in Lebanon",
+                    "description": "Professional security training, threat assessment, emergency response, and certification programs in Lebanon."
                   }
                 }
               ]

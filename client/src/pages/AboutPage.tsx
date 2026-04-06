@@ -193,8 +193,43 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Us | 365 Security Services</title>
-        <meta name="description" content="Learn about 365 Security Services, our mission, vision, and the dedicated leadership team behind our premium security solutions." />
+        <title>About Us - Lebanese Security Experts | 365 Security Services Lebanon</title>
+        <meta name="description" content="Learn about 365 Security Services, Lebanon's trusted security company. Meet our expert Lebanese leadership team with decades of experience in manned security, cash services, and security consultancy across Beirut and Lebanon." />
+        <meta name="keywords" content="about 365 security services, Lebanese security experts, security company Lebanon, security leadership team Lebanon, Dekwaneh security company, Beirut security professionals" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://365securityservices.company/about" />
+
+        <meta property="og:title" content="About Us - Lebanese Security Experts | 365 Security Services" />
+        <meta property="og:description" content="Meet the expert leadership team behind Lebanon's trusted security company. Decades of experience protecting businesses and institutions across Beirut and Lebanon." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://365securityservices.company/about" />
+        <meta property="og:site_name" content="365 Security Services" />
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us - Lebanese Security Experts | 365 Security Services" />
+        <meta name="twitter:description" content="Meet the expert leadership team behind Lebanon's trusted security company." />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "mainEntity": {
+              "@type": "SecurityService",
+              "name": "365 Security Services",
+              "description": "Leading Lebanese security company providing professional security services across Beirut and Lebanon.",
+              "url": "https://365securityservices.company",
+              "foundingLocation": {
+                "@type": "Place",
+                "name": "Dekwaneh, Lebanon"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "Lebanon"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       
       <Navbar />

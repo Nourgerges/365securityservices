@@ -90,9 +90,9 @@ export default function SecurityConsultancyPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Expert Security Consultancy Services | Risk Assessment & Crisis Planning | 365 Security</title>
-        <meta name="description" content="Professional security consultancy services including risk assessment, threat analysis, crisis planning, evacuation procedures, and security surveys. Expert security consulting in Lebanon." />
-        <meta name="keywords" content="security consultancy, risk assessment, threat analysis, crisis planning, evacuation procedures, security surveys, security consulting, gap analysis, Lebanon security consultants" />
+        <title>Security Consultancy Lebanon | Risk Assessment & Crisis Planning | 365 Security</title>
+        <meta name="description" content="Expert security consultancy services in Lebanon. 365 Security provides risk assessment, threat analysis, crisis planning, evacuation procedures, and security surveys for businesses and institutions across Beirut and Lebanon." />
+        <meta name="keywords" content="security consultancy Lebanon, risk assessment Lebanon, threat analysis Beirut, crisis planning Lebanon, security surveys Lebanon, security consulting Lebanon, gap analysis Lebanon, evacuation procedures Lebanon, corporate security consulting Beirut" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://365securityservices.company/services/security-consultancy" />
         

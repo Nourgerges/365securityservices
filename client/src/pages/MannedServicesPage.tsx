@@ -141,9 +141,9 @@ export default function MannedServicesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Professional Manned Security Services | 365 Security Services Lebanon</title>
-        <meta name="description" content="Expert manned security services including static guards, close protection, patrolling supervisors, emergency response teams, and VIP security. Professional security personnel across Lebanon." />
-        <meta name="keywords" content="manned security services, security guards, static guards, close protection, patrolling supervisors, emergency response, VIP security, airport security, security personnel, Lebanon security guards" />
+        <title>Manned Security Guards Lebanon | Static Guards & Close Protection | 365 Security</title>
+        <meta name="description" content="Hire professional security guards in Lebanon. 365 Security Services provides static guards, close protection, patrolling supervisors, emergency response teams, and VIP security across Beirut, Dekwaneh, and all of Lebanon." />
+        <meta name="keywords" content="security guards Lebanon, hire security guards Beirut, manned security Lebanon, static guards Lebanon, close protection Lebanon, VIP security Lebanon, armed guards Beirut, patrolling supervisors Lebanon, emergency response team Lebanon, corporate security guards Lebanon" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://365securityservices.company/services/manned-services" />
         
